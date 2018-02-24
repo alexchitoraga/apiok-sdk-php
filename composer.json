@@ -1,0 +1,39 @@
+{
+  "name": "alexchitoraga/apiok",
+  "description": "APIOK PHP SDK with support for Laravel integration",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "ok",
+    "sdk",
+    "php",
+    "laravel",
+    "test",
+    "api"
+  ],
+  "authors": [
+    {
+      "name": "Alexandru Chitoraga",
+      "email": "alexandru.chitoraga@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.3",
+  },
+  "autoload": {
+    "psr-4": {
+      "Alexchitoraga\\Apiok\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Alexchitoraga\\Apiok\\ApiokServiceProvider"
+      ],
+      "aliases": {
+        "Apiok": "Alexchitoraga\\Apiok\\Facades\\Apiok"
+      }
+    }
+  },
+}
