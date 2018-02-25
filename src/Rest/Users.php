@@ -64,13 +64,30 @@ class Users
      * Метод позволяет приложению проверить, не превышен ли предел вызова методов для указанного пользователя
      * **Авторизация**: Сессия опциональна (для External (Внешних) приложений - обязательна)
      *
-     * @param String $uids Список идентификаторов пользователей, разделенных запятыми. Макс. число идентификаторов составляет 100.
+     * @param ApiMethod $methods Список разделенных запятыми имен методов
+     * @param String $uid Идентификатор пользователя
      * @return array
      */
     public function getCallsLeft(string $methods, string $uid = null): array
     {
         $params['methods'] = $methods;
         if ($uid) $params['uid'] = $uid;
+
+        return ['method' => 'users.getCallsLeft', 'params' => $params];
+    }
+
+    /**
+     * [Link to Wiki](https://apiok.ru/dev/methods/rest/users/users.getCurrentUser)<br/>
+     * Получение информации о текущем пользователе<br/>
+     * **Авторизация**: Сессия обязательна
+     *
+     * @param UserInfoField $fields Список запрашиваемых полей
+     * @return array
+     */
+    public function getCurrentUser(string $fields = null): array
+    {
+        $params = [];
+        if ($fields) $params['fields'] = $fields;
 
         return ['method' => 'users.getCallsLeft', 'params' => $params];
     }
