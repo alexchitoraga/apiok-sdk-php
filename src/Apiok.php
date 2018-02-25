@@ -3,7 +3,26 @@
 namespace Alexchitoraga\Apiok;
 
 /**
- * @method array usersGetInfo($uids, $fields, $empty_pictures = false) Возвращает большой массив информации, связанной с пользователем, для каждого переданного идентификатора пользователя
+ * @method array deleteGuests($uids) Удалить пользователя из списка гостей
+ * @method array getAdditionalInfo($uids) Возвращает дополнительную информацию о пользователях
+ * @method array getCallsLeft($methods, $uid = null) Метод позволяет приложению проверить, не превышен ли предел вызова методов для указанного пользователя
+ * @method array getGames() Возвращает список установленных приложений у пользователя
+ * @method array getGuests($pagingAnchor = null, $pagingDirection = null, $count = null) Возвращает список гостей указанного пользователя
+ * @method array getHolidays($uid = null) Метод позволяет получать список праздников пользователя.
+ * @method array getInfo($uids, $fields, $empty_pictures = false) Возвращает большой массив информации, связанной с пользователем, для каждого переданного идентификатора пользователя
+ * @method array getInfoBy($uid, $fields, $register_as_guest = false) Возвращает большой массив информации, связанной с пользователем, с учетом его связи с вызывающим юзером
+ * @method array getInvitableFriends() Возвращает список друзей для приглашения в игры с пометкой о возможности автовыбора из приложения
+ * @method array getLoggedInUser() Возвращает информацию о текущем пользователе
+ * @method array getMobileOperator($uid = null) Метод проверяет, имеет ли пользователь привязанный номер телефона, и, если имеет, возвращает идентификатор оператора мобильной связи
+ * @method array getSettings($uid = null) Возвращает настройки профиля пользователя на портале
+ * @method array hasAppPermission($ext_perm, $uid = null) Проверяет, имеет ли приложение разрешение на выполнение вызова определенных методов для указанного пользователя
+ * @method array isAppUser($uid = null) Проверяет, установил ли пользователь приложение
+ * @method array removeAppPermissions($ext_perm, $uid = null) Удаление разрешений из списка разрешений пользователя на вызов приложения
+ * @method array setSettings($smsNotifAdd = null, $smsNotifRemove = null, $smsNotifStartTime = null, $smsNotifEndTime = null) Сохраняет настройки в профиле пользователя на портале
+ * @method array setStatus($status = null, $location = null) Устанавливает или очищает статус пользователя
+ * @method array updateMask($uid = null, $mask = null, $orUpdate = false) Производит логическую побитовую операцию ( OR или AND ) переданного числового значения над маской пользователя и устанавливает полученный результат в маску пользователя. Если параметр mask не указан, то возвращает текущее значение маски пользователя.
+ * @method array updateMasks($uids, $mask = null, $orUpdate = false) Производит логическую побитовую операцию ( OR или AND ) переданного числового значения над масками указанных пользователей и и сохраняет результат. Если параметр mask не указан, то возвращает текущее значение масок указанных пользователей.
+ * @method array updateMasksV2($uids, $or_mask = null, $and_mask = null) Производит битовые операции над масками указанных пользователей и и сохраняет результат. Если параметр маски для операции не указаны, то возвращает текущее значение масок указанных пользователей.
  */
 
 class Apiok
