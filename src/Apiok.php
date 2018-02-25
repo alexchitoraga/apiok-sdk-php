@@ -2,6 +2,10 @@
 
 namespace Alexchitoraga\Apiok;
 
+/**
+ * @method array usersGetInfo($uids, $fields, $empty_pictures = false) Возвращает большой массив информации, связанной с пользователем, для каждого переданного идентификатора пользователя
+ */
+
 class Apiok
 {
     /**
