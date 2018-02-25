@@ -311,8 +311,8 @@ class Users
     public function setStatus($status = null, $location = null)
     {
         $params = [];
-        if ($status) = $params['status'] = $status;
-        if ($location) = $params['location'] = $location;
+        if ($status) $params['status'] = $status;
+        if ($location) $params['location'] = $location;
 
         return ['method' => 'users.setStatus', 'params' => $params];
     }
