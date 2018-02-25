@@ -35,7 +35,7 @@ class Users
      * @param String $uids Список идентификаторов пользователей, которых необходимо удалить из списка гостей, разделённых запятой
      * @return array
      */
-    public function deleteGuests(string $uids): array
+    public function deleteGuests($uids)
     {
         $params['uids'] = $uids;
 
@@ -52,7 +52,7 @@ class Users
      * @param String $uids Список идентификаторов пользователей, разделенных запятыми. Макс. число идентификаторов составляет 100.
      * @return array
      */
-    public function getAdditionalInfo(string $uids): array
+    public function getAdditionalInfo($uids)
     {
         $params['uids'] = $uids;
 
@@ -68,7 +68,7 @@ class Users
      * @param String $uid Идентификатор пользователя
      * @return array
      */
-    public function getCallsLeft(string $methods, string $uid = null): array
+    public function getCallsLeft($methods, $uid = null)
     {
         $params['methods'] = $methods;
         if ($uid) $params['uid'] = $uid;
@@ -86,12 +86,33 @@ class Users
      * @param UserInfoField $fields Список запрашиваемых полей
      * @return array
      */
-    public function getGames(): array
+    public function getGames()
     {
         $params = [];
 
         return ['method' => 'users.getGames', 'params' => $params];
     }
 
+    /**
+     * [Link to Wiki](https://apiok.ru/dev/methods/rest/users/users.getGuests)<br/>
+     * Возвращает список гостей указанного пользователя<br/><br/>
+     * **Авторизация**: Сессия обязательна<br/><br/>
+     * Необходимые права:
+     * - VALUABLE_ACCESS
+     *
+     * @param String $pagingAnchor Идентификатор постраничного вывода
+     * @param PagingDirection $pagingDirection Направление постраничного вывода
+     * @param Integer $count Количество возвращаемых результатов
+     * @return array
+     */
+    public function getGuests($pagingAnchor = null, $pagingDirection = null, $count = null)
+    {
+        $params = [];
+        if ($pagingAnchor) $params['pagingAnchor'] = $pagingAnchor;
+        if ($pagingDirection) $params['pagingDirection'] = $pagingDirection;
+        if ($count) $params['count'] = $count;
+
+        return ['method' => 'users.getGuests', 'params' => $params];
+    }
 
 }
