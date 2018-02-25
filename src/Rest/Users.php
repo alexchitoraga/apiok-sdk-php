@@ -77,19 +77,21 @@ class Users
     }
 
     /**
-     * [Link to Wiki](https://apiok.ru/dev/methods/rest/users/users.getCurrentUser)<br/>
-     * Получение информации о текущем пользователе<br/>
-     * **Авторизация**: Сессия обязательна
+     * [Link to Wiki](https://apiok.ru/dev/methods/rest/users/users.getGames)<br/>
+     * Возвращает список установленных приложений у пользователя<br/><br/>
+     * **Авторизация**: Сессия обязательна<br/><br/>
+     * Необходимые права:
+     * - VALUABLE_ACCESS
      *
      * @param UserInfoField $fields Список запрашиваемых полей
      * @return array
      */
-    public function getCurrentUser(string $fields = null): array
+    public function getGames(): array
     {
         $params = [];
-        if ($fields) $params['fields'] = $fields;
 
-        return ['method' => 'users.getCallsLeft', 'params' => $params];
+        return ['method' => 'users.getGames', 'params' => $params];
     }
+
 
 }
