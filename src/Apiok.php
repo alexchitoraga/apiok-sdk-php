@@ -24,6 +24,18 @@ namespace Alexchitoraga\Apiok;
  * @method array usersUpdateMasks($uids, $mask = null, $orUpdate = false) Производит логическую побитовую операцию ( OR или AND ) переданного числового значения над масками указанных пользователей и и сохраняет результат. Если параметр mask не указан, то возвращает текущее значение масок указанных пользователей.
  * @method array usersUpdateMasksV2($uids, $or_mask = null, $and_mask = null) Производит битовые операции над масками указанных пользователей и и сохраняет результат. Если параметр маски для операции не указаны, то возвращает текущее значение масок указанных пользователей.
  * @method array urlGetInfo($url) Получить id и тип объекта по полной ссылке
+ * @method array groupGetCounters($group_id, $counterTypes, $uid = null) Возвращает основные счётчики объектов группы - количество членов группы, фотографий, фотоальбомов и т.п.
+ * @method array groupGetInfo($uids, $fields, $move_to_top = false) Получение информации о группах
+ * @method array groupGetMembers($uid, $anchor = null, $direction = null, $statuses = null, $count = null) Получение списка пользователей группы. Для получения всех участников группы в порядке вступления необходимо в качестве аргумента statuses перечислить все статусы (ADMIN, MODERATOR, ACTIVE). Если передать пустое значение, то пользователи вернутся в порядке возрастания id.
+ * @method array groupGetStatOverview($gid, $fields, $period = null, $start_time = null) Получает основные счетчики статистики групп
+ * @method array groupGetStatPeople($gid, $fields, $demo_type = null) Метод для получения статистики по аудитории группы: демография по полу и возрасту, география по странам и городам, и т.д.<br/>Данные в статистике возвращаются за последние 7 дней. За исключением демографии по участникам, она - среди всех участников группы (НО демография по охвату и пользователям, дававшим обратную связь - за последние 7 дней).
+ * @method array groupGetStatTopic($topic_id, $fields) Метод для получения статистики по топику, используя его идентификатор
+ * @method array groupGetStatTopics($gid, $fields, $count = null, $anchor = null, $start_time = null, $end_time = null) Метод для получения статистики по топикам. Возвращает список топиков из группы по выбранному диапазону со статистикой.
+ * @method array groupGetStatTrends($gid, $fields, $start_time = null, $end_time = null) Получает историю счетчиков статистики по дням
+ * @method array groupGetUserGroupsByIds($group_id, $uids) Получение информации о принадлежности пользователей конкретной группе
+ * @method array groupGetUserGroupsV2($uid = null, $anchor = null, $direction = null, $count = null) Получение списка групп пользователя
+ * @method array groupPinGroupFeed($pin_id) Операция припинивания или отпинивания события в групповой ленте
+ * @method array groupSetMainPhoto($group_id, $photo_id) Установка главной фотографии группы. Используется как 3й шаг процесса загрузки фотографий на сервер.
  */
 
 class Apiok
