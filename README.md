@@ -81,10 +81,17 @@ it's own configuration. To set configuration you
 have to add new service in config/services.php file.
 
 ```php
-`apiok' => {
+'apiok' => {
     'application_key' => env('APPLICATION_KEY'),
     'session_key' => env('SESSION_KEY'),
     'access_token' => env('ACCESS_TOKEN'),
     'secret_key' => env('SECRET_KEY'),
 ],
 ```
+
+### Testing
+
+Tests are stored in **/tests** folder. There are two tests which are disabled. 
+To run them you must modify phpunit.xml php constansts by configuration
+from your applications. Also you must to prefix this two tests with 
+keyword "test".
