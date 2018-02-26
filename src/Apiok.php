@@ -63,19 +63,20 @@ class Apiok
     function __call($name, $arguments)
     {
         preg_match("/^([a-z]*)/", $name, $output_array);
-        $class_name = '\Alexchitoraga\Apiok\Rest\\' . ucfirst($output_array[0]);
+        $class = ucfirst($output_array[0]);
 
         preg_match("/[a-z]*([A-Za-z]*)/", $name, $output_array);
-        $method_name = lcfirst($output_array[1]);
+        $method = lcfirst($output_array[1]);
 
-        $rest_class = new $class_name;
+        $method_name = $class . '.' . $method;
 
-        if (!method_exists($rest_class, $method_name))
-            throw new \ErrorException('Method ' . $method_name . '() not exists');
+        $params = array();
+        if (isset($arguments[0])) {
+            if (!is_array($arguments[0])) throw new \ErrorException('Params should have array type');
+            $params = $arguments[0];
+        }
 
-        $data = call_user_func_array([$rest_class, $method_name], $arguments);
-
-        $response = $this->sendApiRequest($data['method'], $data['params']);
+        $response = $this->sendApiRequest($method_name, $params);
 
         return $response;
     }
