@@ -27,7 +27,7 @@ class ApiokTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(3, $response['error_code']);
     }
 
-    public function testCallMethodWithoutArguments()
+    public function CallMethodWithoutArguments()
     {
         $apiok = new \Alexchitoraga\Apiok\Apiok($this->configs);
 
@@ -36,7 +36,7 @@ class ApiokTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(100, $response['error_code']);
     }
 
-    public function testCallMehodWithArguments()
+    public function CallMehodWithArguments()
     {
         $apiok = new \Alexchitoraga\Apiok\Apiok($this->configs);
 
