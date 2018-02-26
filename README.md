@@ -43,8 +43,11 @@ $apiok = new Apiok([
     'secret_key' => '***',
 ]);
 
-// to finally call OKSDK API method
-$apiok->usersGetInfo('***', '*');
+// Call OKSDK API method
+// Methods must be converted by next principle:
+// users.getInfo => usersGetInfo
+// messagesV2.sendGameInvite => messagev2SendGameInvite
+$apiok->usersGetInfo($params);
 ```
 
 ## Integration in Laravel
