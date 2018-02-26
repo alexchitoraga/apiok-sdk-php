@@ -18,7 +18,10 @@
     }
   ],
   "require": {
-    "php": ">=7.1.3",
+    "php": ">=5.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
   },
   "autoload": {
     "psr-4": {
@@ -35,5 +38,5 @@
         "Apiok": "Alexchitoraga\\Apiok\\Facades\\Apiok"
       }
     }
-  },
+  }
 }

@@ -63,7 +63,7 @@ class Apiok
     function __call($name, $arguments)
     {
         preg_match("/^([a-z]*)/", $name, $output_array);
-        $class = ucfirst($output_array[0]);
+        $class = strtolower($output_array[0]);
 
         preg_match("/[a-z]*([A-Za-z]*)/", $name, $output_array);
         $method = lcfirst($output_array[1]);
